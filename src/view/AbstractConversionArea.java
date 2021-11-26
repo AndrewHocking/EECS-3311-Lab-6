@@ -6,6 +6,12 @@ import java.awt.Insets;
 
 import javax.swing.JTextArea;
 
+/**
+ * An abstract class that defines the necessary methods for all ConversionArea
+ * objects in the ConverterProject application.
+ * 
+ * @author Andrew Hocking
+ */
 public abstract class AbstractConversionArea extends JTextArea {
 
 	private static final long serialVersionUID = -8796789017865342136L;

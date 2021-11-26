@@ -3,7 +3,9 @@ package view;
 import javax.swing.*;
 
 /**
- * The main panel of the UnitConversionApp application, where the text boxes live.
+ * The main panel of the ConverterProject application, where the conversion area text boxes live.
+ * 
+ * @author Andrew Hocking
  */
 public class ConversionPanel extends JPanel {
 	

@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 /**
- * The menu bar at the top of the screen in the MiniSoccerApp application.
+ * The menu bar at the top of the screen in the ConverterProject application.
+ * 
+ * @author Andrew Hocking
  */
 public class MenuBar extends JMenuBar {
 

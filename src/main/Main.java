@@ -1,4 +1,5 @@
 package main;
+
 import controller.MenubarListener;
 import view.MenuBar;
 import view.ConversionPanel;
@@ -6,12 +7,15 @@ import view.ConversionPanel;
 import javax.swing.*;
 
 /**
- * A starter class for the UnitConversionApp application.
+ * A starter class for the ConverterProject application.
+ * 
+ * @author Andrew Hocking
  */
-public class UnitConversionApp {
+public class Main {
 
 	/**
 	 * Starts the application.
+	 * 
 	 * @param args - Command line arguments (unused).
 	 */
 	public static void main(String[] args) {
