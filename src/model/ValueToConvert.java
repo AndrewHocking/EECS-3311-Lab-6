@@ -3,7 +3,7 @@ package model;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
-class ValueToConvert {
+public class ValueToConvert {
 	// the state of input
 	private int cm;
 	
