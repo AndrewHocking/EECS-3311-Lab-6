@@ -3,7 +3,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import view.ConversionPanel;
+import javax.swing.JTextArea;
+
+import model.ValueToConvert;
 
 /**
  * A listener for the ConverterProject application's menu bar.
@@ -12,17 +14,19 @@ import view.ConversionPanel;
  */
 public class MenubarListener implements ActionListener {
 
-	ConversionPanel conversionPanel;
+	JTextArea conversionPanel;
 
-	public MenubarListener(ConversionPanel conversionPanel) {
+	public MenubarListener(JTextArea conversionPanel) {
 		this.conversionPanel = conversionPanel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		ValueToConvert v = new ValueToConvert();
 		switch (e.getActionCommand()) {
 		case "Save input centimetres":
-			// TODO: Implement class with method to convert cm to m and ft.
+			// TODO: retrieves input text set to v
+			v.setCM(Integer.parseInt(this.conversionPanel.getText()));
 			break;
 		default:
 			throw new RuntimeException("Invalid action command " + e.getActionCommand());
