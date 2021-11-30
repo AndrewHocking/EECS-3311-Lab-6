@@ -22,7 +22,7 @@ public class MenubarListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 		case "Save input centimetres":
-			// TODO: Implement class with method to convert cm to m and ft.
+			// TODO:  retrieves input int in the CentimetersConversionArea JTextArea and sets the new state of ValueToConvert with it
 			break;
 		default:
 			throw new RuntimeException("Invalid action command " + e.getActionCommand());
