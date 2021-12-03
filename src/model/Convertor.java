@@ -2,11 +2,13 @@ package model;
 
 public final class Convertor {
 	//convert cm to feet.
-		public static double convertToFeet(int in) {
-			return 0.0328 * in;
+		public static String convertToFeet(int in) {
+			String temp = String.format("%.11f", (0.03280839895 * in));
+			return temp;
 		}
 		//convert cm to m.
-		public static double convertToM(int in) {
-			return 0.01 * in;
+		public static String convertToM(int in) {
+			String temp = String.format("%.2f", (in * 0.01));
+			return temp;
 		}
 }

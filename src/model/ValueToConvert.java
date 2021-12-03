@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 
 public class ValueToConvert {
 	// the state of input
-	private int cm;
+	private Integer cm;
 	
 	private PropertyChangeSupport support;
 	
@@ -13,7 +13,7 @@ public class ValueToConvert {
 		support = new PropertyChangeSupport(this);
 	}
 	
-	public void addPorpertyChangeListener(PropertyChangeListener pcl) {
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
 		support.addPropertyChangeListener(pcl);
 	}
 	
@@ -26,16 +26,8 @@ public class ValueToConvert {
 		return cm;
 	}
 	//setter of cm. 
-	public void setCM(int acm) {
+	public void setCM(Integer acm) {
 		support.firePropertyChange("cm", this.cm, acm);
 		cm = acm;
-	}
-	//convert cm to feet.
-	public double convertToFeet() {
-		return 0.0328 * cm;
-	}
-	//convert cm to m.
-	public double convertToM() {
-		return 0.01 * cm;
 	}
 }

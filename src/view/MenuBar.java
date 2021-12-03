@@ -40,5 +40,7 @@ public class MenuBar extends JMenuBar {
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(accelerator, modifier));
 		return menuItem;
 	}
+	
+	
 
 }

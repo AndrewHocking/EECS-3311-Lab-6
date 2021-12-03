@@ -34,6 +34,7 @@ public abstract class AbstractConversionArea extends JTextArea {
 		setEditable(isEditable);
 		setPreferredSize(new Dimension(250, 250));
 		setMargin(new Insets(10, 10, 10, 10));
+		this.setText(null);
 	}
 
 	/**
