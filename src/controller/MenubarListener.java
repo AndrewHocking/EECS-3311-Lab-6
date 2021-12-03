@@ -51,8 +51,7 @@ public class MenubarListener implements ActionListener{
 		
 		switch (e.getActionCommand()) {
 		case "Save input centimetres":
-			// TODO:  retrieves input int in the CentimetersConversionArea JTextArea and sets the new state of ValueToConvert with it
-			
+			// TODO:  retrieves input int in the CentimetersConversionArea JTextArea and sets the new state of ValueToConvert with it			
 			model.setCM(Integer.parseInt(this.conversionPanel.getCentimetresConversionArea().getText()));
 			break;
 		default:
