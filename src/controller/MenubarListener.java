@@ -15,10 +15,19 @@ import view.ConversionPanel;
  * 
  * @author Andrew Hocking
  */
+/**
+ * @author Yun Lin
+ *
+ */
 public class MenubarListener implements ActionListener{
 
 	ConversionPanel conversionPanel;
 	ValueToConvert model;
+	//
+	/**
+	 * @param conversionPanel view
+	 * @param model model
+	 */
 	public MenubarListener(final ConversionPanel conversionPanel, final ValueToConvert model) {
 		this.conversionPanel = conversionPanel;
 		this.model = model;
@@ -37,7 +46,7 @@ public class MenubarListener implements ActionListener{
 		});
 	}
 
-	
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		switch (e.getActionCommand()) {
