@@ -1,10 +1,11 @@
 package main;
 
-import controller.MenubarListener;
-import view.MenuBar;
-import view.ConversionPanel;
-
 import javax.swing.*;
+
+import controller.MenubarListener;
+import model.ValueToConvert;
+import view.ConversionPanel;
+import view.MenuBar;
 
 /**
  * A starter class for the ConverterProject application.
@@ -21,7 +22,8 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame appFrame = new JFrame("Unit Converter");
 		ConversionPanel conversionPanel = new ConversionPanel();
-		MenubarListener menubarListener = new MenubarListener(conversionPanel);
+		ValueToConvert v = new ValueToConvert();
+		MenubarListener menubarListener = new MenubarListener(conversionPanel, v);
 		MenuBar menuBar = new MenuBar(menubarListener);
 		appFrame.add(conversionPanel);
 		appFrame.setJMenuBar(menuBar);
