@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.Insets;
 
 import javax.swing.JTextArea;
+import javax.swing.text.AbstractDocument;
+
+import model.NumberFilter;
 
 /**
  * An abstract class that defines the necessary methods for all ConversionArea
@@ -28,13 +31,13 @@ public abstract class AbstractConversionArea extends JTextArea {
 	 *                         the user or not.
 	 */
 	public AbstractConversionArea(String unitSuffix, Color backgroundColour, boolean isEditable) {
-		super("0" + unitSuffix);
 		this.unitSuffix = unitSuffix;
 		setBackground(backgroundColour);
 		setEditable(isEditable);
 		setPreferredSize(new Dimension(250, 250));
 		setMargin(new Insets(10, 10, 10, 10));
 		this.setText(null);
+		((AbstractDocument) getDocument()).setDocumentFilter(new NumberFilter());
 	}
 
 	/**
