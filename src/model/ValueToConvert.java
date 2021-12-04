@@ -4,55 +4,54 @@ import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 
 /**
- * A value class representing the centimetre value to be converted in the
- * ConverterProject application.
+ * subject(observable) of observer pattern with state cm to be inspected.
  * 
  * @author Yun Lin
  */
 public class ValueToConvert {
 	// the state of input
-	private Double cm;
-
+	private Integer cm;
+	
 	private PropertyChangeSupport support;
-
+	
 	public ValueToConvert() {
 		support = new PropertyChangeSupport(this);
 	}
-
+	//
 	/**
-	 * Adds a PropertyChangeListener to this model.
+	 * add observer to observers list
 	 * 
-	 * @param pcl - The PropertyChangeListener to be added to this model.
+	 * @param pcl PropertyChangeListener
 	 */
 	public void addPropertyChangeListener(PropertyChangeListener pcl) {
 		support.addPropertyChangeListener(pcl);
 	}
-
+	//
 	/**
-	 * Removes a PropertyChangeListener from this model.
+	 * remove observer from observers list
 	 * 
-	 * @param pcl - The PropertyChangeListener to be added to this model.
+	 * @param pcl PropertyChangeListener
 	 */
 	public void removedPropertyChangeListener(PropertyChangeListener pcl) {
 		support.removePropertyChangeListener(pcl);
 	}
-
+	
+	// getter of cm.
 	/**
-	 * Retrieves the state of the cm property.
-	 * 
 	 * @return The state of cm property.
 	 */
-	public double getCM() {
+	public int getcm() {
 		return cm;
 	}
-
+	//setter of cm. 
+	
 	/**
-	 * Sets the cm property to the specified value.
+	 * change the state cm and update to notify observer list.
 	 * 
 	 * @param acm input cm.
-	 * @postcondition this.cm == acm
+	 * postcondition: this.cm == acm
 	 */
-	public void setCM(Double acm) {
+	public void setCM(Integer acm) {
 		support.firePropertyChange("cm", this.cm, acm);
 		cm = acm;
 	}
