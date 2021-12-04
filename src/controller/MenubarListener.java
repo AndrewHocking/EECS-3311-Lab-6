@@ -5,26 +5,27 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+
 import model.Convertor;
 import model.ValueToConvert;
 import view.ConversionPanel;
 
 /**
  * A listener for the ConverterProject application's menu bar.
+ * Controller class and observer of observer pattern to wiring a update method to subject(ValueToConvert).
  * 
- * @author Andrew Hocking
- * @author Yun Lin
+ * @author Andrew Hocking, Yun Lin
  */
-public class MenubarListener implements ActionListener {
+public class MenubarListener implements ActionListener{
 
 	ConversionPanel conversionPanel;
 	ValueToConvert model;
-
+	//
 	/**
-	 * Creates a MenubarListener for the given ConversionPanel.
+	 * Constructor of Controller, glue up view model and controller, and wiring update method of observer pattern when initialize. 
 	 * 
-	 * @param conversionPanel - The application's ConversionPanel.
-	 * @param model           - The ValueToConvert object for this application.
+	 * @param conversionPanel view
+	 * @param model model
 	 */
 	public MenubarListener(final ConversionPanel conversionPanel, final ValueToConvert model) {
 		this.conversionPanel = conversionPanel;
@@ -33,30 +34,28 @@ public class MenubarListener implements ActionListener {
 
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
+				// TODO Auto-generated method stub
 				if (evt.getPropertyName().equalsIgnoreCase("cm")) {
-					String metres = Convertor.convertCentimetresToMetres((double) evt.getNewValue());
-					conversionPanel.getMetresConversionArea().setText(metres);
-					String feet = Convertor.convertCentimetresToFeet((double) evt.getNewValue());
-					conversionPanel.getFeetConversionArea().setText(feet);
+					String d1 = Convertor.convertToM((int) evt.getNewValue());
+					conversionPanel.getMetresConversionArea().setText(d1);
+					conversionPanel.getFeetConversionArea().setText(Convertor.convertToFeet((int) evt.getNewValue()));
 				}
 			}
-
+			
 		});
 	}
-
+//
+	/**
+	 * Common in Commander pattern:  Retrieves input value in the CentimetersConversionArea JTextArea and sets the new state of ValueToConvert with it
+	 *
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		
 		switch (e.getActionCommand()) {
 		case "Save input centimetres":
-			// Retrieves input value in the CentimetersConversionArea JTextArea and sets the
-			// new state of ValueToConvert with it
-			String cmText = this.conversionPanel.getCentimetresConversionArea().getText();
-			if (cmText.equals("") || cmText.equals("-")) {
-				cmText = "0";
-				conversionPanel.getCentimetresConversionArea().setText("0");
-			}
-			model.setCM(Double.parseDouble(cmText));
+			// TODO: retrieves input text set to v
+			model.setCM(Integer.parseInt(this.conversionPanel.getCentimetresConversionArea().getText()));
 			break;
 		default:
 			throw new RuntimeException("Invalid action command " + e.getActionCommand());
