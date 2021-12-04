@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-
 import model.Convertor;
 import model.ValueToConvert;
 import view.ConversionPanel;
@@ -14,19 +13,18 @@ import view.ConversionPanel;
  * A listener for the ConverterProject application's menu bar.
  * 
  * @author Andrew Hocking
- */
-/**
  * @author Yun Lin
- *
  */
-public class MenubarListener implements ActionListener{
+public class MenubarListener implements ActionListener {
 
 	ConversionPanel conversionPanel;
 	ValueToConvert model;
-	//
+
 	/**
-	 * @param conversionPanel view
-	 * @param model model
+	 * Creates a MenubarListener for the given ConversionPanel.
+	 * 
+	 * @param conversionPanel - The application's ConversionPanel.
+	 * @param model           - The ValueToConvert object for this application.
 	 */
 	public MenubarListener(final ConversionPanel conversionPanel, final ValueToConvert model) {
 		this.conversionPanel = conversionPanel;
@@ -35,24 +33,30 @@ public class MenubarListener implements ActionListener{
 
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				// TODO Auto-generated method stub
 				if (evt.getPropertyName().equalsIgnoreCase("cm")) {
-					String d1 = Convertor.convertToM((int) evt.getNewValue());
-					conversionPanel.getMetresConversionArea().setText(d1);
-					conversionPanel.getFeetConversionArea().setText(Convertor.convertToFeet((int) evt.getNewValue()));
+					String metres = Convertor.convertCentimetresToMetres((double) evt.getNewValue());
+					conversionPanel.getMetresConversionArea().setText(metres);
+					String feet = Convertor.convertCentimetresToFeet((double) evt.getNewValue());
+					conversionPanel.getFeetConversionArea().setText(feet);
 				}
 			}
-			
+
 		});
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		switch (e.getActionCommand()) {
 		case "Save input centimetres":
-			// TODO:  retrieves input int in the CentimetersConversionArea JTextArea and sets the new state of ValueToConvert with it			
-			model.setCM(Integer.parseInt(this.conversionPanel.getCentimetresConversionArea().getText()));
+			// Retrieves input value in the CentimetersConversionArea JTextArea and sets the
+			// new state of ValueToConvert with it
+			String cmText = this.conversionPanel.getCentimetresConversionArea().getText();
+			if (cmText.equals("") || cmText.equals("-")) {
+				cmText = "0";
+				conversionPanel.getCentimetresConversionArea().setText("0");
+			}
+			model.setCM(Double.parseDouble(cmText));
 			break;
 		default:
 			throw new RuntimeException("Invalid action command " + e.getActionCommand());
