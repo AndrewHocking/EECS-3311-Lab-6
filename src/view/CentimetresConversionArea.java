@@ -2,6 +2,10 @@ package view;
 
 import java.awt.Color;
 
+import javax.swing.text.AbstractDocument;
+
+import model.NumberFilter;
+
 /**
  * The conversion area for centimetres in the ConverterProject application.
  * 
@@ -17,6 +21,7 @@ public class CentimetresConversionArea extends AbstractConversionArea {
 	 */
 	public CentimetresConversionArea() {
 		super("", Color.YELLOW, true);
+		((AbstractDocument) getDocument()).setDocumentFilter(new NumberFilter());
 	}
 
 }

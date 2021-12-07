@@ -16,7 +16,7 @@ public class MenuBar extends JMenuBar {
 	/**
 	 * Creates a new MenuBar.
 	 * 
-	 * @param menubarListener - The ActionListener for this MenuBar.
+	 * @param menubarListener The ActionListener for this MenuBar.
 	 */
 	public MenuBar(ActionListener menubarListener) {
 		super();
@@ -29,12 +29,12 @@ public class MenuBar extends JMenuBar {
 	/**
 	 * Creates a new menu item for the menu bar.
 	 * 
-	 * @param text          - The menu item's name.
-	 * @param actionCommand - The name of the item's Action Command.
-	 * @param accelerator   - The keyboard shortcut for the menu item.
-	 * @param modifier      - The modifier key to be held down with the accelerator
+	 * @param text          The menu item's name.
+	 * @param actionCommand The name of the item's Action Command.
+	 * @param accelerator   The keyboard shortcut for the menu item.
+	 * @param modifier      The modifier key to be held down with the accelerator
 	 *                      key (set to 0 for no modifier key).
-	 * @param listener      - The ActionListener to listen for interaction with the
+	 * @param listener      The ActionListener to listen for interaction with the
 	 *                      menu item.
 	 * @return The new menu item.
 	 */

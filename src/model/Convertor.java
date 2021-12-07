@@ -1,34 +1,46 @@
 package model;
 
+import java.text.DecimalFormat;
+
 /**
- * utility class to convert input cm to feet and meter as string formatted.
+ * A utility class for converting measurements to different units.
  * 
  * @author Yun Lin
- *
+ * @author Andrew Hocking
  */
 public final class Convertor {
-	//convert cm to feet.
-		
-		/**
-		 * cm to feet string formatted ".11f"
-		 * 
-		 * @param in	- input integer
-		 * @return out String formated feet to 11 dights after decimal point value to be 0.03280839895 * in.
-		 */
-		public static String convertToFeet(int in) {
-			String temp = String.format("%.11f", (0.03280839895 * in));
-			return temp;
-		}
-		//convert cm to m.
-		
-		/**
-		 * cm to meter string formatted ".2f"
-		 * 
-		 * @param in	- input integer
-		 * @return	output String formated meter to after 2 decimal digits value be in * 0.01.
-		 */
-		public static String convertToM(int in) {
-			String temp = String.format("%.2f", (in * 0.01));
-			return temp;
-		}
+
+	/**
+	 * Converts centimetres to feet, assuming 1 cm = 0.03280839895 ft.
+	 * 
+	 * @param cm Centimetre value to convert.
+	 * @return A String representation of the value in feet, with up to a maximum of
+	 *         11 decimal places.
+	 */
+	public static String convertCentimetresToFeet(double cm) {
+		return formatOutput(0.03280839895 * cm);
+	}
+
+	/**
+	 * Converts centimetres to metres, assuming 1 cm = 0.01 m.
+	 * 
+	 * @param cm Centimetre value to convert.
+	 * @return A String representation of the value in metres, with up to a maximum
+	 *         of 11 decimal places.
+	 */
+	public static String convertCentimetresToMetres(double cm) {
+		return formatOutput(cm * 0.01);
+	}
+
+	/**
+	 * Formats the output to a String representation of the output value, with up to
+	 * a maximum of 11 decimal places and trailing zeroes removed.
+	 * 
+	 * @param outputNumber The number to be formatted.
+	 * @return Formatted output value
+	 */
+	private static String formatOutput(double outputNumber) {
+		return new DecimalFormat("#.###########").format(outputNumber);
+	}
+
 }
