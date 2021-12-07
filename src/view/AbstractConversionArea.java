@@ -5,9 +5,6 @@ import java.awt.Dimension;
 import java.awt.Insets;
 
 import javax.swing.JTextArea;
-import javax.swing.text.AbstractDocument;
-
-import model.NumberFilter;
 
 /**
  * An abstract class that defines the necessary methods for all ConversionArea
@@ -37,7 +34,6 @@ public abstract class AbstractConversionArea extends JTextArea {
 		setPreferredSize(new Dimension(250, 250));
 		setMargin(new Insets(10, 10, 10, 10));
 		this.setText(null);
-		((AbstractDocument) getDocument()).setDocumentFilter(new NumberFilter());
 	}
 
 	/**
@@ -60,6 +56,7 @@ public abstract class AbstractConversionArea extends JTextArea {
 			text = "0";
 		}
 		super.setText(text + unitSuffix);
+		System.out.println(getText());
 	}
 
 }
