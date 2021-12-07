@@ -51,8 +51,8 @@ public class ValueToConvert {
 	 * Sets the cm property to the specified value and updates to notify observer
 	 * list.
 	 * 
+	 * Post-condition: this.cm == acm
 	 * @param acm input cm.
-	 * @postcondition this.cm == acm
 	 */
 	public void setCM(Double acm) {
 		support.firePropertyChange("cm", this.cm, acm);
