@@ -17,7 +17,7 @@ public class Main {
 	/**
 	 * Starts the application.
 	 * 
-	 * @param args - Command line arguments (unused).
+	 * @param args Command line arguments (unused).
 	 */
 	public static void main(String[] args) {
 		JFrame appFrame = new JFrame("Unit Converter");

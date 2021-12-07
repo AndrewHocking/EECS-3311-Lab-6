@@ -24,11 +24,11 @@ public abstract class AbstractConversionArea extends JTextArea {
 	 * Creates a new AbstractConversionArea with the given parameters and sets the
 	 * size and margin.
 	 * 
-	 * @param unitSuffix       - The suffix to follow the unit (e.g. For "5 cm" the
+	 * @param unitSuffix       The suffix to follow the unit (e.g. For "5 cm" the
 	 *                         suffix will be " cm").
-	 * @param backgroundColour - The background colour of the conversion area.
-	 * @param isEditable       - Whether the conversion area should be editable by
-	 *                         the user or not.
+	 * @param backgroundColour The background colour of the conversion area.
+	 * @param isEditable       Whether the conversion area should be editable by the
+	 *                         user or not.
 	 */
 	public AbstractConversionArea(String unitSuffix, Color backgroundColour, boolean isEditable) {
 		this.unitSuffix = unitSuffix;
@@ -41,9 +41,9 @@ public abstract class AbstractConversionArea extends JTextArea {
 	}
 
 	/**
-	 * Gets the unit suffix of the AbstractConversionArea.
+	 * Retrieves the unit suffix of the AbstractConversionArea.
 	 * 
-	 * @return - The unit suffix of the AbstractConversionArea.
+	 * @return The unit suffix of the AbstractConversionArea.
 	 */
 	public String getUnitSuffix() {
 		return this.unitSuffix;
